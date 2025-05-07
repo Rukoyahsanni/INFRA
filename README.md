@@ -67,3 +67,5 @@ In the pipeline configuration:
 🙋‍♂️ Author
 Rukayat Sanni – LinkedIn | GitHub
 
+```markdown
+📄 For known issues and solutions, see [TROUBLESHOOTING.md](./TROUBLESHOOTING.md)
