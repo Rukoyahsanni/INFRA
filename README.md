@@ -28,17 +28,40 @@ The deployment process includes:
 
 ---
 
-## 📁 Project Structure
 
-terraform-jenkins-vpc/
-├── ec2-instance/
-│ ├── main.tf # Provisions Jenkins EC2
-│ ├── variables.tf
-│ └── outputs.tf
-├── jenkins-vpc-pipeline/
-│ ├── main.tf # Terraform to create VPC
-│ ├── variables.tf
-│ └── outputs.tf
-├── scripts/
-│ └── jenkins-install.sh # Installs Jenkins and plugins
-└── README.md
+---
+
+## ⚙️ Setup Instructions
+
+### 1. Provision Jenkins EC2 with Terraform
+
+```bash
+cd INFRA
+terraform init
+terraform validat
+terraform plan
+terraform apply --auto-approve
+```
+This spins up an EC2 instance and uses the terraform provisioner block in the ec2.tf file to install jenkins and print our website URL
+
+### 2. Configure Jenkins
+- Complete initial setup
+- Install plugins: Terraform, AWS Credentials
+
+### 3. Connect Jenkins to AWS
+- In Jenkins, go to: Manage Jenkins → Credentials
+- Add your AWS Access Key ID and Secret Access Key
+- Create a new Pipeline Job
+
+### 4. Jenkins Pipeline to Deploy Custom VPC
+In the pipeline configuration:
+- Add parameter
+- Set up a GitHub repo as the source
+- Use a Jenkinsfile to run Terraform from jenkins-vpc-pipeline/
+
+🔐 Security Considerations
+1. AWS credentials are stored securely using Jenkins Credentials Manager
+2. IAM roles should follow least privilege principle
+3. Security group rules should be strict and reviewed
+
+
