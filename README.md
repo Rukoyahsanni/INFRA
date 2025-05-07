@@ -64,4 +64,6 @@ In the pipeline configuration:
 2. IAM roles should follow least privilege principle
 3. Security group rules should be strict and reviewed
 
+🙋‍♂️ Author
+Rukayat Sanni – LinkedIn | GitHub
 
